@@ -6,8 +6,6 @@ let radioArtist = radioButtons[0];
 let radioAlbum = radioButtons[1];
 let radioSong = radioButtons[2];
 // When Search Button is clicked..
-
-window.onload = function (){
 searchBtn.addEventListener("click", function () {
   event.preventDefault();
   // Test statement
@@ -27,7 +25,7 @@ searchBtn.addEventListener("click", function () {
     matchSong(searchInput);
   }
 });
-}
+
 // Return related artist
 function matchArtist(artistName) {
   findArtist(artistName);
