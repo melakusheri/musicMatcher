@@ -25,6 +25,7 @@ searchBtn.addEventListener("click", function () {
     matchSong(searchInput);
   }
 });
+
 // Return related artist
 function matchArtist(artistName) {
   findArtist(artistName);
