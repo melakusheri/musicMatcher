@@ -5,32 +5,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/styles/style.css">
   <title>Music Matcher</title>
 </head>
 
 <body>
+  <div class="container">
+    <h1>Music Matcher</h1>
+    <h2>The easy way to find your favorite artist info!</h2>
+    <form id="search-form">
+      <input type="text" id="search-form-input" placeholder="Enter Artist Name">
+      <button class="btn" id="search-form-btn" type="submit">Search</button>
+      <br>
+      <label>
+        <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist">
+        <span>Artist</span>
+      </label>
+      <label>
+        <input class="with-gap" id="search-form-album" type="radio" name="search-criteria" value="album">
+        <span>Album</span>
+      </label>
+      <label>
+        <input class="with-gap" id="search-form-song" type="radio" name="search-criteria" value="song">
+        <span>Song</span>
+      </label>
+    </form>
 
-  <h1>Music Matcher</h1>
-  <h2>The easy way to find your favorite artist info!</h2>
-  <form id="search-form">
-    <input type="text" id="search-form-input" placeholder="Enter Artist Name">
-    <button id="search-form-btn" type="submit">Search</button>
-    <br>
-    <input id="search-form-artist" type="radio" name="search-criteria" value="artist">
-    <label for="artist">Artist</label>
-    <input id="search-form-album" type="radio" name="search-criteria" value="album">
-    <label for="album">Album</label>
-    <input id="search-form-song" type="radio" name="search-criteria" value="song">
-    <label for="album">Song</label>
-  </form>
-
-  <ul id="related_artists">
+    <ul id="related_artists">
       <!-- this is where the related artists get spit out -->
-  </ul>
-
-
+    </ul>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/scripts/script.js"></script>
 
 </body>
