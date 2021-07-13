@@ -78,10 +78,7 @@ function findAlbum(albumName) {
   let response = fetch(url);
   fetch(url)
     .then((response) => response.json())
-    // .then(data => findArtist(data.results.albummatches.album[0].artist))
-    .then(data => {
-      document.getElementById("testImage").src = data.results.albummatches.album[0].artist.image;
-    })
+    .then(data => findArtist(data.results.albummatches.album[0].artist))
 }
 
 function findSong(songName) {
