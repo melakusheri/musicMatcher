@@ -30,6 +30,7 @@ searchBtn.addEventListener("click", function (e) {
 });
 
 // Return related artist
+// Test branch
 function matchArtist(artist_id) {
   console.log("Inside matchArtist function");
   console.log(artist_id);
