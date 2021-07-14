@@ -32,6 +32,17 @@
       </label>
     </form>
 
+    <!-- Modal appears when search-form-btn is clicked -->
+    <!-- This checks in with the user whether the selected song is the correct one -->
+    <div id="check_song" class="modal">
+      <div class="modal-content">
+        <h4>Found Song</h4>
+        <p>Is <span id="song"></span> by <span id="artist"></span> the song you mean?</p>
+        <button class="btn" id="yes-btn" type="submit">Yes</button>
+        <button class="btn" id="no-btn" type="submit">No</button>
+      </div>
+    </section>
+
     <ul id="related_artists">
       <!-- this is where the related artists get spit out -->
     </ul>
