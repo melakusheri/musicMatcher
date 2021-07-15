@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>Music Matcher</title>
 </head>
 
@@ -39,7 +39,7 @@
 
     <!-- Modal appears when search-form-btn is clicked -->
     <!-- This checks in with the user whether the selected song is the correct one -->
-    <div id="check_song" class="modal">
+    <div id="check_song" class="modal modal-fixed-footer">
       <div class="modal-content">
         <span id="recommendation">
           <p>If you like <span id="info"></span> you will enjoy music by these artists:</p>
@@ -47,6 +47,9 @@
 
           </ul>
         </span>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </div>
 

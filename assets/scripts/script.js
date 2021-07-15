@@ -11,8 +11,6 @@ let radioSong = radioButtons[2];
 
 // When Search Button is clicked..
 searchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-
   // Test statement
   console.log("Inside searchBtn eventListener");
 
