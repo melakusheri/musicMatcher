@@ -51,9 +51,11 @@ function getRecommended(artist_id) {
     .then((response) => response.json())
     .then(data => {
       let related_list = data.message.body.artist_list;
+
+      // Test Message
       console.log(related_list);
 
-      // Loop through fetched list and create <li> for each artist
+      // Loop through fetched list and create a list entry for each recommendation
       let recommendList = document.getElementById("related_artists");
       recommendList.innerHTML = "";
 
@@ -61,7 +63,9 @@ function getRecommended(artist_id) {
         let link = document.createElement("a");
         link.classList.add('collection-item')
         link.innerText = related_list[i].artist.artist_name;
-        link.setAttribute("href", related_list[i].artist.artist_twitter_url);
+        link.setAttribute("id", related_list[i].artist.artist_name);
+        getArtistURL(related_list[i].artist.artist_name)
+
         recommendList.appendChild(link);
       }
     });
@@ -122,6 +126,22 @@ function findSong(songName) {
       infoSection.appendChild(info);
 
       findArtist(data.results.trackmatches.track[0].artist)
+    })
+}
+
+// Function to get a URL for any artist based on Last.FM info
+function getArtistURL(artistName) {
+  // Test statement
+  console.log("Inside getArtistURL");
+
+  // Fetch API
+  url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=7ab9cb11995319d63e18bb6fc861e53e&format=json`;
+  let response = fetch(url);
+  fetch(url)
+    .then((response) => response.json())
+    .then(data => {
+      console.log(data.artist.url);
+      document.getElementById(artistName).setAttribute("href", data.artist.url);
     })
 }
 
