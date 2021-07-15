@@ -15,8 +15,13 @@
     <h1>Music Matcher</h1>
     <h2>The easy way to find your favorite artist info!</h2>
     <form id="search-form">
-      <input type="text" id="search-form-input" placeholder="Enter Artist Name">
-      <button class="btn" id="search-form-btn" type="submit">Search</button>
+      <input type="text" id="search-form-input" placeholder="Type here">
+
+      <!-- This button opens the modal and initiates the fetch -->
+      <button data-target="check_song" class="btn modal-trigger" id="search-form-btn" type="submit">
+        Search
+      </button>
+
       <br>
       <label>
         <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist" checked>
@@ -36,19 +41,19 @@
     <!-- This checks in with the user whether the selected song is the correct one -->
     <div id="check_song" class="modal">
       <div class="modal-content">
-        <h4>Found Song</h4>
-        <p>Is <span id="song"></span> by <span id="artist"></span> the song you mean?</p>
-        <button class="btn" id="yes-btn" type="submit">Yes</button>
-        <button class="btn" id="no-btn" type="submit">No</button>
-      </div>
-    </section>
+        <span id="recommendation">
+          <p>If you like <span id="info"></span> you will enjoy music by these artists:</p>
+          <ul id="related_artists" class="collection">
 
-    <ul id="related_artists">
-      <!-- this is where the related artists get spit out -->
-    </ul>
+          </ul>
+        </span>
+      </div>
+    </div>
+
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./assets/scripts/script.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="./assets/scripts/script.js"></script>
 
 </body>
 
