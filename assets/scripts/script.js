@@ -58,10 +58,11 @@ function getRecommended(artist_id) {
       recommendList.innerHTML = "";
 
       for(var i = 0; i < related_list.length; i++) {
-        let li = document.createElement("li");
-        li.classList.add('collection-item')
-        li.innerText = related_list[i].artist.artist_name;
-        recommendList.appendChild(li);
+        let link = document.createElement("a");
+        link.classList.add('collection-item')
+        link.innerText = related_list[i].artist.artist_name;
+        link.setAttribute("href", related_list[i].artist.artist_twitter_url);
+        recommendList.appendChild(link);
       }
     });
 }
