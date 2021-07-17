@@ -4,12 +4,12 @@ const radioButtons = document.querySelectorAll('input[name="search-criteria"');
 let infoSection = document.getElementById("info");
 let recommendList = document.getElementById("related_artists");
 
-// Each radio button
+// Each individual radio button
 let radioArtist = radioButtons[0];
 let radioAlbum = radioButtons[1];
 let radioSong = radioButtons[2];
 
-// When Search Button is clicked..
+// When Search Button is clicked...
 searchBtn.addEventListener("click", function (e) {
   // Test statement
   console.log("Inside searchBtn eventListener");
@@ -21,15 +21,17 @@ searchBtn.addEventListener("click", function (e) {
   // Get user input
   let searchInput = document.getElementById("search-form-input").value;
 
-  // Artist selected
+  // If artist is selected
   if (radioArtist.checked == true) {
     findArtist(searchInput)
   }
-  // Album selected
+
+  // If album is selected
   if (radioAlbum.checked == true) {
     findAlbum(searchInput);
   }
-  // Song selected
+
+  // If song is selected
   if (radioSong.checked == true) {
     findSong(searchInput);
   }
@@ -71,12 +73,14 @@ function getRecommended(artist_id) {
     });
 }
 
+// Function that returns the musixmatch API ID for the user's artist
 function findArtist(artistName) {
 
   // Test statement
   console.log("Inside findArtist function");
 
-  // Fetch API
+  // Fetch for Musixmatch API. 
+  // Note: corsURL is only used for local testing. Once deployed, we can use url.
   corsUrl = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/artist.search?format=json&callback=callback&q_artist=${artistName}&apikey=79b0066e9624b8ba0705fd55e8316a64`;
   url = `https://api.musixmatch.com/ws/1.1/artist.search?format=json&callback=callback&q_artist=${artistName}&apikey=79b0066e9624b8ba0705fd55e8316a64`;
   let response = fetch(corsUrl);
@@ -92,11 +96,13 @@ function findArtist(artistName) {
     })
 }
 
+// Function that returns the name of the artist of the user's album.
 function findAlbum(albumName) {
+
   // Test statement
   console.log("Inside findAlbum function");
 
-  // Fetch API
+  // Fetch for last.fm API
   url = `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${albumName}&api_key=7ab9cb11995319d63e18bb6fc861e53e&format=json`;
   let response = fetch(url);
   fetch(url)
@@ -105,17 +111,19 @@ function findAlbum(albumName) {
       let info = document.createElement("span");
       info.innerText = data.results.albummatches.album[0].name + " by ";
       infoSection.appendChild(info);
-
+    
+      // Send the name of the artist to findArtist() to get the musixmatch artist_id required for matchArtist()
       findArtist(data.results.albummatches.album[0].artist);
     })
 }
 
+// Function that returns the name of the artist of the user's song.
 function findSong(songName) {
 
   // Test statement
   console.log("Inside findSong function");
 
-  // Fetch API
+  // Fetch for last.fm API
   url = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${songName}&api_key=7ab9cb11995319d63e18bb6fc861e53e&format=json`;
   let response = fetch(url);
   fetch(url)

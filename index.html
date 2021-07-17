@@ -12,30 +12,32 @@
 
 <body>
   <div class="container">
-    <h1>Music Matcher</h1>
-    <h2>The easy way to find new music you will love!</h2>
+    <h1 class="center-align white-text">Music Matcher</h1>
+    <h2 class="center-align white-text">Finding related artists of your favorites is easy!</h2>
     <form id="search-form">
-      <input type="text" id="search-form-input" placeholder="Type here">
-
-      <!-- This button opens the modal and initiates the fetch -->
-      <button data-target="check_song" class="btn modal-trigger" id="search-form-btn" type="submit">
-        Search
-      </button>
-
-      <br>
-      <label>
-        <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist" checked>
-        <span>Artist</span>
-      </label>
-      <label>
-        <input class="with-gap" id="search-form-album" type="radio" name="search-criteria" value="album">
-        <span>Album</span>
-      </label>
-      <label>
-        <input class="with-gap" id="search-form-song" type="radio" name="search-criteria" value="song">
-        <span>Song</span>
-      </label>
+      <div class="input-field">
+        <input type="text" id="search-form-input">
+        <label class="active" for="search-form-input">Enter an Artist Name, Album or song to find related Artists</label>
+      </div>
+      <div class="row">
+        <label>
+          <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist" checked>
+          <span class="search-form-radio">Artist</span>
+        </label>
+        <label>
+          <input class="with-gap" id="search-form-album" type="radio" name="search-criteria" value="album">
+          <span class="search-form-radio">Album</span>
+        </label>
+        <label>
+          <input class="with-gap" id="search-form-song" type="radio" name="search-criteria" value="song">
+          <span class="search-form-radio">Song</span>
+        </label>
+      </div>
     </form>
+    
+    <button data-target="check_song" class="btn waves-effect waves-light modal-trigger" id="search-form-btn" type="submit">
+      Search for Related Artists</button>
+    <section id="specify-song">
 
     <!-- Modal appears when search-form-btn is clicked -->
     <!-- This checks in with the user whether the selected song is the correct one -->
@@ -53,7 +55,6 @@
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </div>
-
   </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
