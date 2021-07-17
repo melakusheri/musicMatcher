@@ -3,6 +3,10 @@ const searchBtn = document.getElementById("search-form-btn");
 const radioButtons = document.querySelectorAll('input[name="search-criteria"');
 let infoSection = document.getElementById("info");
 let recommendList = document.getElementById("related_artists");
+let searchHistoryArtist = JSON.parse(localStorage.getItem("artist")) || [];
+let searchHistoryAlbum = JSON.parse(localStorage.getItem("album")) || [];
+let searchHistorySong = JSON.parse(localStorage.getItem("song")) || [];
+
 
 // Each individual radio button
 let radioArtist = radioButtons[0];
@@ -23,16 +27,34 @@ searchBtn.addEventListener("click", function (e) {
 
   // If artist is selected
   if (radioArtist.checked == true) {
+
+    // Add it to searchHistory list, then refresh storage
+    searchHistoryArtist.push(searchInput);
+    localStorage.removeItem("artist");
+    localStorage.setItem("artist", JSON.stringify(searchHistoryArtist))
+
     findArtist(searchInput)
   }
 
   // If album is selected
   if (radioAlbum.checked == true) {
+
+    // Add it to searchHistory list, then refresh storage
+    searchHistoryAlbum.push(searchInput);
+    localStorage.removeItem("album");
+    localStorage.setItem("album", JSON.stringify(searchHistoryAlbum))
+
     findAlbum(searchInput);
   }
 
   // If song is selected
   if (radioSong.checked == true) {
+
+    // Add it to searchHistory list, then refresh storage
+    searchHistorySong.push(searchInput);
+    localStorage.removeItem("song");
+    localStorage.setItem("song", JSON.stringify(searchHistorySong))
+
     findSong(searchInput);
   }
 });
