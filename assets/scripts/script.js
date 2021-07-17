@@ -73,9 +73,9 @@ searchBtn.addEventListener("click", function (e) {
 
     // Add it to searchHistory list, then refresh storage
     searchHistoryArtist.push(searchInput);
-    //localStorage.removeItem("artist");
     localStorage.setItem("artist", JSON.stringify(searchHistoryArtist))
     searchHistoryArtistObject[searchInput]=null
+
     findArtist(searchInput)
   }
 
@@ -84,8 +84,8 @@ searchBtn.addEventListener("click", function (e) {
 
     // Add it to searchHistory list, then refresh storage
     searchHistoryAlbum.push(searchInput);
-    localStorage.removeItem("album");
     localStorage.setItem("album", JSON.stringify(searchHistoryAlbum))
+    searchHistoryAlbumObject[searchInput]=null
 
     findAlbum(searchInput);
   }
@@ -95,8 +95,8 @@ searchBtn.addEventListener("click", function (e) {
 
     // Add it to searchHistory list, then refresh storage
     searchHistorySong.push(searchInput);
-    localStorage.removeItem("song");
     localStorage.setItem("song", JSON.stringify(searchHistorySong))
+    searchHistorySongObject[searchInput]=null
 
     findSong(searchInput);
   }
