@@ -1,0 +1,26 @@
+#info {
+    font-weight: bold;
+}
+
+body{
+  background-image: url(../images/mainBG.jpeg);
+  background-repeat: no-repeat;
+  /* background-position:; */
+  background-size:auto;
+}
+
+.container{
+  margin-bottom: 50px;
+}
+
+
+/* [type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid hsl(218, 50%, 50%);
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: hsl(218, 50%, 50%);
+} */
