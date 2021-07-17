@@ -12,31 +12,35 @@
 
 <body>
   <div class="container">
-    <h1>Music Matcher</h1>
-    <h2>The easy way to find your favorite artist info!</h2>
+    <h1 class="center-align white-text">Music Matcher</h1>
+    <h2 class="center-align white-text">Finding related artists of your favorites is easy!</h2>
     <form id="search-form">
-      <input type="text" id="search-form-input" placeholder="Enter Artist Name">
-      <button class="btn" id="search-form-btn" type="submit">Search</button>
-      <br>
-      <label>
-        <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist" checked>
-        <span>Artist</span>
-      </label>
-      <label>
-        <input class="with-gap" id="search-form-album" type="radio" name="search-criteria" value="album">
-        <span>Album</span>
-      </label>
-      <label>
-        <input class="with-gap" id="search-form-song" type="radio" name="search-criteria" value="song">
-        <span>Song</span>
-      </label>
+      <div class="input-field">
+        <input type="text" id="search-form-input">
+        <label class="active" for="search-form-input">Enter an Artist Name, Album or song to find related Artists</label>
+      </div>
+      <div class="row">
+        <label>
+          <input class="with-gap" id="search-form-artist" type="radio" name="search-criteria" value="artist" checked>
+          <span class="search-form-radio">Artist</span>
+        </label>
+        <label>
+          <input class="with-gap" id="search-form-album" type="radio" name="search-criteria" value="album">
+          <span class="search-form-radio">Album</span>
+        </label>
+        <label>
+          <input class="with-gap" id="search-form-song" type="radio" name="search-criteria" value="song">
+          <span class="search-form-radio">Song</span>
+        </label>
+      </div>
     </form>
-
+    <button class="btn waves-effect waves-light" id="search-form-btn" type="submit">Search for Related
+      Artists</button>
     <section id="specify-song">
-      
+
     </section>
 
-    <ul id="related_artists">
+    <ul id="related_artists" class="collection">
       <!-- this is where the related artists get spit out -->
     </ul>
   </div>

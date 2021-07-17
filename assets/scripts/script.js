@@ -108,6 +108,7 @@ function matchArtist(artist_id) {
       for(var i = 0; i < related_list.length; i++) {
         let li = document.createElement("li");
         li.innerText = related_list[i].artist.artist_name;
+        li.classList.add('collection-item');
         list.appendChild(li);
       }
     });
