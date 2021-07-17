@@ -1,3 +1,7 @@
+#info {
+    font-weight: bold;
+}
+
 body{
   background-image: url(/assets/images/mainBG.jpeg);
   background-repeat: no-repeat;
@@ -20,4 +24,3 @@ body{
 [type="radio"].with-gap:checked + span:after {
   background-color: hsl(218, 50%, 50%);
 } */
-
