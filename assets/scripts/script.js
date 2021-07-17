@@ -1,5 +1,6 @@
 // DOM selectors
 const searchBtn = document.getElementById("search-form-btn");
+const searchField = document.getElementById("search-form");
 const radioButtons = document.querySelectorAll('input[name="search-criteria"');
 let infoSection = document.getElementById("info");
 let recommendList = document.getElementById("related_artists");
@@ -7,11 +8,53 @@ let searchHistoryArtist = JSON.parse(localStorage.getItem("artist")) || [];
 let searchHistoryAlbum = JSON.parse(localStorage.getItem("album")) || [];
 let searchHistorySong = JSON.parse(localStorage.getItem("song")) || [];
 
+const searchHistoryArtistObject = {};
+searchHistoryArtist.forEach(artist => {
+  searchHistoryArtistObject[artist] = null
+});
+
+const searchHistoryAlbumObject = {};
+searchHistoryAlbum.forEach(album => {
+  searchHistoryAlbumObject[album] = null
+});
+
+const searchHistorySongObject = {};
+searchHistorySong.forEach(song => {
+  searchHistorySongObject[song] = null
+});
+
+let currentObj = searchHistoryArtistObject
+
+
 
 // Each individual radio button
 let radioArtist = radioButtons[0];
 let radioAlbum = radioButtons[1];
 let radioSong = radioButtons[2];
+
+// When Radio Buttons are clicked
+$(".with-gap").click(function() {
+
+   // If artist is selected
+   if (radioArtist.checked == true) {
+    currentObj = searchHistoryArtistObject;
+    autoCompleteChange();
+  }
+
+  // If album is selected
+  if (radioAlbum.checked == true) {
+    currentObj = searchHistoryAlbumObject;
+    autoCompleteChange();
+  }
+
+  // If song is selected
+  if (radioSong.checked == true) {
+    currentObj = searchHistorySongObject;
+    autoCompleteChange();
+  }
+
+  console.log(currentObj);
+})
 
 // When Search Button is clicked...
 searchBtn.addEventListener("click", function (e) {
@@ -30,9 +73,9 @@ searchBtn.addEventListener("click", function (e) {
 
     // Add it to searchHistory list, then refresh storage
     searchHistoryArtist.push(searchInput);
-    localStorage.removeItem("artist");
+    //localStorage.removeItem("artist");
     localStorage.setItem("artist", JSON.stringify(searchHistoryArtist))
-
+    searchHistoryArtistObject[searchInput]=null
     findArtist(searchInput)
   }
 
@@ -180,3 +223,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems);
 });
+
+// Function to use autocomplete. See https://materializecss.com/autocomplete.html
+$(document).ready(function(){
+  console.log(searchHistoryArtistObject);
+  $('input.autocomplete').autocomplete({
+    data: currentObj
+  });
+});
+
+function autoCompleteChange() {
+  $('input.autocomplete').autocomplete({
+    data: currentObj
+  });
+}
+      
