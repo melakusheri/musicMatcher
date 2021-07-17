@@ -3,7 +3,7 @@
 }
 
 body{
-  background-image: url(/assets/images/mainBG.jpeg);
+  background-image: url(../images/mainBG.jpeg);
   background-repeat: no-repeat;
   /* background-position:; */
   background-size:auto;
