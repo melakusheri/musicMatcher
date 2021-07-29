@@ -14,4 +14,4 @@ MusicMatcher was written using HTML5, CSS3, Javascript 1.8.5, and makes use of t
 ![image](https://user-images.githubusercontent.com/75343776/126040972-43decdfa-5248-44be-b7ae-6de303d0b329.png)
 
 # Deployed Link
-https://timdavidson2.github.io/musicMatcher/
+https://melakusheri.github.io/musicMatcher/
