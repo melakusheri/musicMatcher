@@ -2,6 +2,7 @@
 Project 1
 Authors: Tim Davidson, Elbin Cenisev, Melaku Sheri
 
+
 ## Description
 MusicMatcher is a webapp that allows users to find new artists that they might like based on artists/songs/albums
 that they put into the search function of the app.
